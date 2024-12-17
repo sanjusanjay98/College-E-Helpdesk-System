@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/services.css">
+</head>
+<body>
+    <div class="container">
+        <a href="mainpage.html" class="btn btn-primary back-btn mt-3">Back to Main Page</a>
+        <div class="form-wrapper">
+            <form id="hostelServiceForm" action="../HostelServiceServlet" method="POST" enctype="multipart/form-data">
+                <div class="form-header">
+                    <h1>College Hostel Service Form</h1>
+                    <p>If you're experiencing any difficulties or issues in the college hostel, you can report them by completing this form. It's a simple way to let us know what's going on so we can address your concerns.</p>
+                </div>
+
+                <fieldset class="form-group">
+                    <legend>Personal Information</legend>
+                    <div class="input-group">
+                        <input type="text" id="student-name" name="student-name" required placeholder=" ">
+                        <label for="student-name">Student Name <span>*</span></label>
+                    </div>
+                    <div class="input-group">
+                        <select id="department" name="department" required>
+                            <option value="" disabled selected>Select your department</option>
+                            <option value="IT">IT</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="ETE">ETE</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="MECHANICAL">MECHANICAL</option>
+                            <option value="CST">CST</option>
+                            <option value="CSD">CSD</option>
+                            <option value="CYBER">CYBER</option>
+                        </select>
+                        <label for="department">Department <span>*</span></label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="text" id="roll" name="roll" required placeholder=" ">
+                        <label for="roll">Roll No <span>*</span></label>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" id="phone" name="phone" required placeholder=" ">
+                        <label for="phone">Phone No<span>*</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <legend>Problem Description</legend>
+                    <div class="input-group">
+                        <textarea id="problems" name="problems" required placeholder=" " rows="4"></textarea>
+                        <label for="problems">Your Problems <span>*</span></label>
+                    </div>
+                </fieldset>
+                
+                <fieldset class="form-group">
+                    <legend>Upload Files</legend>
+                    <div class="input-group">
+                        <input type="file" id="imageUpload" name="images" accept="image/*" multiple>
+                        <label for="imageUpload">Choose Files (Optional)</label>
+                    </div>
+                    <div id="imagePreviewContainer"></div>
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" id="clearBtn" class="btn btn-secondary clear-btn">Clear</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const imageUpload = document.getElementById('imageUpload');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+        const clearBtn = document.getElementById('clearBtn');
+        const form = document.getElementById('hostelHelpForm');
+
+        imageUpload.addEventListener('change', function(event) {
+            imagePreviewContainer.innerHTML = ''; 
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const previewContainer = document.createElement('div');
+                        previewContainer.classList.add('preview-container');
+
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'preview-image';
+
+                        const removeBtn = document.createElement('button');
+                        removeBtn.innerHTML = '&times;'; // X mark
+                        removeBtn.className = 'remove-btn';
+                        removeBtn.onclick = function() {
+                            imagePreviewContainer.removeChild(previewContainer);
+                        };
+
+                        previewContainer.appendChild(img);
+                        previewContainer.appendChild(removeBtn);
+                        imagePreviewContainer.appendChild(previewContainer);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        clearBtn.addEventListener('click', function() {
+            form.reset(); 
+            imagePreviewContainer.innerHTML = ''; 
+            imageUpload.value = ''; 
+        });
+
+        document.querySelectorAll('.input-group input, .input-group textarea').forEach(element => {
+            element.addEventListener('focus', () => {
+                element.parentElement.classList.add('focused');
+            });
+            element.addEventListener('blur', () => {
+                if (element.value === '') {
+                    element.parentElement.classList.remove('focused');
+                }
+            });
+        });
+
+        document.getElementById('hostelHelpForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'submission-confirmation.html';
+        });
+    </script>
+</body>
+</html>

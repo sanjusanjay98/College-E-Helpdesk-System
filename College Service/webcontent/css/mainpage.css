@@ -1,0 +1,29 @@
+:root {
+    --primary-color: #133DA6;
+    --secondary-color: #FE7600;
+    --accent-color: #002147;
+}
+body {
+    background-color: #f8f9fa;
+}
+.navbar {
+    background-color: var(--primary-color);
+}
+.card {
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+.card-img-top {
+    height: 260px;
+    object-fit: cover;
+}

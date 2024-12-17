@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #1a3e87;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.submission-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.submission-table th, .submission-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.submission-table th {
+    background-color: #f7f7f7;
+    color: #ff6a00;
+    font-weight: bold;
+}
+
+.submission-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.submission-table tbody tr:hover {
+    background-color: #e6f7ff;
+}
+
+.preview-image {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background-color: #1a3e87;
+    color: #ffffff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background-color: #144c8c;
+}
+
+thead th {
+    font-size: 16px;
+}
+
+tbody td {
+    font-size: 14px;
+}
+

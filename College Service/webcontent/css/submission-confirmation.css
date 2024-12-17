@@ -1,0 +1,61 @@
+:root {
+    --primary-color: #133DA6;
+    --secondary-color: #FE7600;
+    --accent-color: #002147;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    color: var(--primary-color);
+}
+
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+}
+
+.tick {
+    margin-bottom: 5px; /* Reduced space between image and text */
+    width: 80px; /* Set the width for the tick mark */
+    height: 80px; /* Set the height for the tick mark */
+}
+
+/* Adjust the styling for the tick mark */
+.confirmation-container .tick {
+    font-size: 60px; /* Adjust if using a GIF or image */
+    color: green; /* Color for the tick mark */
+}
+
+.confirmation-container h1 {
+    color: var(--primary-color);
+    margin-top: 10px; /* Added margin for spacing */
+}
+
+.confirmation-container p {
+    color: var(--secondary-color);
+}
+
+.confirmation-container button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.confirmation-container button:hover {
+    background-color: var(--primary-color);
+}

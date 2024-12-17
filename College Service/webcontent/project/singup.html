@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="../css/signup.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>College Service Portal User Sign Up</h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>User Sign Up</h2>
+            <form action="../SignupServlet" id="signupForm" method="post">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required minlength="8" maxlength="20" pattern=".{8,20}" title="Password must be between 8 and 20 characters long.">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required minlength="8" maxlength="20" pattern=".{8,20}" title="Password must be between 8 and 20 characters long.">
+                </div>                
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+
+            <!-- Sign In Button -->
+            <button class="btn-secondary" onclick="window.location.href='login.html'">
+                Already have an account? <span style="color: var(--secondary-color);">Sign in here</span>
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>

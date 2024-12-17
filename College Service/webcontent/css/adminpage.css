@@ -1,0 +1,44 @@
+@charset "UTF-8";
+:root {
+    --primary-color: #133DA6;
+    --secondary-color: #FE7600;
+    --accent-color: #002147;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+}
+
+.card {
+    transition: transform 0.3s;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.card-img-top {
+    height: 260px;
+    object-fit: cover;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+}
